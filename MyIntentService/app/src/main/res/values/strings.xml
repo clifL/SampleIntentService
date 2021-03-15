@@ -5,4 +5,6 @@
     <string name="ServiceStart">Start Normal Service</string>
     <string name="ServiceStop">Stop Normal Service</string>
     <string name="ServiceDataSend">SEND DATA TO A NORMAL SERVICE</string>
+    <string name="Notification">SEND NOTIFICATION</string>
+    <string name="NotificationService">SEND NOTIFICATION VIA SERVICE</string>
 </resources>

@@ -54,5 +54,17 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="@string/ServiceDataSend" />
+
+        <Button
+            android:id="@+id/buttonNotification"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/Notification" />
+
+        <Button
+            android:id="@+id/buttonNotificationService"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/NotificationService" />
     </LinearLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>
