@@ -4,26 +4,43 @@ import android.app.NotificationChannel
 import android.app.NotificationManager
 import android.app.PendingIntent
 import android.app.TaskStackBuilder
+import android.content.ComponentName
 import android.content.Context
 import android.content.Intent
+import android.content.ServiceConnection
 import android.graphics.Color
 import android.os.Build
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.os.IBinder
 import android.util.Log
 import androidx.core.app.NotificationCompat
 import androidx.core.app.NotificationManagerCompat
 import kotlinx.android.synthetic.main.activity_main.*
 
+
 class MainActivity : AppCompatActivity() {
 
+    //Notification stuff
     val CHANNEL_ID = "channelId"
     val CHANNEL_NAME = "channelName"
     val NOTIFICATION_ID = 0
 
+    //Binding stuff
+    private var mService: ServiceWithBind? = null
+    private var mBound = false
+    private lateinit var intentToStartService: Intent
+
+
+
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
+
+        //Binding stuff
+        intentToStartService = Intent(this, ServiceWithBind::class.java)
+        startService(intentToStartService)
 
         //Notification
         val intent = Intent(this, MainActivity::class.java)
@@ -109,5 +126,36 @@ class MainActivity : AppCompatActivity() {
             manager.createNotificationChannel(channel)
 
         }
+    }
+
+    override fun onStart() {
+        super.onStart()
+        bindService(intentToStartService, connection, Context.BIND_AUTO_CREATE)
+    }
+
+    override fun onStop() {
+        super.onStop()
+        if(mBound) {
+            unbindService(connection)
+            mBound = false
+        }
+    }
+
+    private val connection = object : ServiceConnection {
+        override fun onServiceConnected(className: ComponentName, service: IBinder) {
+            // We've bound to LocalService, cast the IBinder and get LocalService instance
+            val binder = service as ServiceWithBind.LocalBinder
+            mService = binder.service
+            mBound = true
+        }
+
+        override fun onServiceDisconnected(arg0: ComponentName) {
+            mBound = false
+        }
+    }
+
+    override fun onDestroy() {
+        super.onDestroy()
+        stopService(intentToStartService)
     }
 }
