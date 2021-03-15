@@ -18,6 +18,7 @@
         </activity>
 
         <service android:name=".ABCIntentService"></service>
+        <service android:name=".ABCService"></service>
     </application>
 
 </manifest>

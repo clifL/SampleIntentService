@@ -4,6 +4,7 @@ import android.app.IntentService
 import android.content.Intent
 import android.util.Log
 
+// Note that intent service will not support multi threading, to use multi threading, you will have to use a normal service
 class ABCIntentService : IntentService("ABCIntentService") {
 
     init {
