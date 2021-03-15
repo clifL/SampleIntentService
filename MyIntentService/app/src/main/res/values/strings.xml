@@ -1,3 +1,8 @@
 <resources>
-    <string name="app_name">MyIntentService</string>
+    <string name="app_name">My Intent Service</string>
+    <string name="IntentServiceStart">Start IntentService</string>
+    <string name="IntentServiceStop">Stop IntentService</string>
+    <string name="ServiceStart">Start Normal Service</string>
+    <string name="ServiceStop">Stop Normal Service</string>
+    <string name="ServiceDataSend">SEND DATA TO A NORMAL SERVICE</string>
 </resources>

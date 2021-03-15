@@ -15,13 +15,13 @@
             android:id="@+id/buttonStart"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Start IntentService" />
+            android:text="@string/IntentServiceStart" />
 
         <Button
             android:id="@+id/buttonStop"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Stop IntentService" />
+            android:text="@string/IntentServiceStop" />
 
         <TextView
             android:id="@+id/textViewService"
@@ -33,13 +33,13 @@
             android:id="@+id/buttonStartService"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Start Normal Service" />
+            android:text="@string/ServiceStart" />
 
         <Button
             android:id="@+id/buttonStopService"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Stop Normal Service" />
+            android:text="@string/ServiceStop" />
 
         <EditText
             android:id="@+id/editTextDataString"
@@ -53,6 +53,6 @@
             android:id="@+id/buttonSendService"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Send data to a normal service" />
+            android:text="@string/ServiceDataSend" />
     </LinearLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>
